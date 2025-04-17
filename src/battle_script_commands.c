@@ -1533,6 +1533,9 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         break;
     }
 
+    if (GetBattleMoveType(move) == TYPE_ROCK && HasWeatherEffect() && gBattleWeather & B_WEATHER_SANDSTORM)
+        calc = (calc * 120) / 100; // 1.2 rock boost in sand
+
     // Target's ability
     switch (defAbility)
     {

@@ -9323,6 +9323,10 @@ static inline u32 CalcMoveBasePower(struct DamageCalculationData *damageCalcData
     case EFFECT_LAST_RESPECTS:
         basePower += (basePower * min(100, GetBattlerSideFaintCounter(battlerAtk)));
         break;
+    case EFFECT_SAND_IMPACT:
+        if (weather & B_WEATHER_SANDSTORM)
+            basePower *= 2;
+        break;
     }
 
     // Move-specific base power changes

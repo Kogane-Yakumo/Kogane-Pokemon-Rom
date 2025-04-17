@@ -9594,7 +9594,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = sUTurnDescription,
         .effect = EFFECT_HIT_ESCAPE,
         .power = 70,
-        .type = TYPE_BUG,
+        .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,
         .target = MOVE_TARGET_SELECTED,
@@ -21005,6 +21005,24 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .sheerForceBoost = SHEER_FORCE_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
+    },
+
+    // Custom Moves
+    [MOVE_SAND_IMPACT] =
+    {
+        .name = COMPOUND_STRING("Sand Impact"),
+        .description = COMPOUND_STRING(
+            "Attacks with sand. Power\n"
+            "increases in sandstorm."),
+        .effect = EFFECT_SAND_IMPACT,
+        .power = 80,
+        .type = TYPE_ROCK,
+        .accuracy = 90,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .battleAnimScript = gBattleAnimMove_SandTomb,
     },
 
     // Z-Moves
