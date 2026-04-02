@@ -13552,10 +13552,25 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sCuboneLevelUpLearnset,
         .teachableLearnset = sCuboneTeachableLearnset,
         .eggMoveLearnset = sCuboneEggMoveLearnset,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_MAROWAK, CONDITIONS({IF_NOT_REGION, REGION_ALOLA})}
+                            #if P_ALOLAN_FORMS
+                                ,{EVO_LEVEL, 28, SPECIES_MAROWAK_ALOLA, CONDITIONS({IF_REGION, REGION_ALOLA}, {IF_TIME, TIME_NIGHT})},
+                                {EVO_NONE, 0, SPECIES_MAROWAK_ALOLA_TOTEM}
+                            #endif
+                            ),
+=======
+>>>>>>> 4297b19265 (Kogane Changes Pt.1)
         .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_MAROWAK, CONDITIONS({IF_NOT_TIME, TIME_NIGHT})},
                                 {EVO_LEVEL, 28, SPECIES_MAROWAK_ALOLA, CONDITIONS({IF_NOT_TIME, TIME_NIGHT})},
                                 {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_MAROWAK_ALOLA},
                                 {EVO_NONE, 0, SPECIES_MAROWAK_ALOLA_TOTEM}),
+<<<<<<< HEAD
+=======
+>>>>>>> c3ee913250 (Kogane Changes Pt.1)
+>>>>>>> 4297b19265 (Kogane Changes Pt.1)
     },
 
     [SPECIES_MAROWAK] =
@@ -14288,8 +14303,21 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sKoffingLevelUpLearnset,
         .teachableLearnset = sKoffingTeachableLearnset,
         .eggMoveLearnset = sKoffingEggMoveLearnset,
+<<<<<<< HEAD
         .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_WEEZING},
                                 {EVO_ITEM, SPECIES_WEEZING_GALAR}),
+=======
+<<<<<<< HEAD
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_WEEZING, CONDITIONS({IF_NOT_REGION, REGION_GALAR})}
+                            #if P_GALARIAN_FORMS
+                                ,{EVO_LEVEL, 35, SPECIES_WEEZING_GALAR, CONDITIONS({IF_REGION, REGION_GALAR})}
+                            #endif
+                            ),
+=======
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_WEEZING},
+                                {EVO_ITEM, SPECIES_WEEZING_GALAR}),
+>>>>>>> c3ee913250 (Kogane Changes Pt.1)
+>>>>>>> 4297b19265 (Kogane Changes Pt.1)
     },
 
     [SPECIES_WEEZING] =
