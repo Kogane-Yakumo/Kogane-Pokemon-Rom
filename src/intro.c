@@ -28,6 +28,8 @@
 #include "intro_frlg.h"
 #include "constants/rgb.h"
 #include "constants/battle_anim.h"
+#include "main_menu.h"
+#include "event_data.h"
 
 /*
     The intro is grouped into the following scenes
@@ -1109,7 +1111,7 @@ static u8 SetUpCopyrightScreen(void)
         CreateTask(Task_HandleExpansionIntro, 0);
 #else
         CreateTask(Task_Scene1_Load, 0);
-        SetMainCallback2(MainCB2_Intro);
+        SetMainCallback2(MainCB2_InitTitleScreen);
 #endif
         if (gMultibootProgramStruct.gcmb_field_2 != 0)
         {
@@ -1137,7 +1139,7 @@ static u8 SetUpCopyrightScreen(void)
 
 void CB2_InitCopyrightScreenAfterBootup(void)
 {
-    if (!SetUpCopyrightScreen())
+    if (gMain.state == 0)
     {
         SetSaveBlocksPointers(GetSaveBlocksPointersBaseOffset());
         ResetMenuAndMonGlobals();
@@ -1148,6 +1150,7 @@ void CB2_InitCopyrightScreenAfterBootup(void)
         SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
         InitHeap(gHeap, HEAP_SIZE);
     }
+    CB2_InitMainMenu();
 }
 
 void CB2_InitCopyrightScreenAfterTitleScreen(void)
