@@ -13553,6 +13553,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sCuboneTeachableLearnset,
         .eggMoveLearnset = sCuboneEggMoveLearnset,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
         .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_MAROWAK, CONDITIONS({IF_NOT_REGION, REGION_ALOLA})}
@@ -13563,14 +13564,19 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                             ),
 =======
 >>>>>>> 4297b19265 (Kogane Changes Pt.1)
+=======
+>>>>>>> b277ea20ac (e)
         .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_MAROWAK, CONDITIONS({IF_NOT_TIME, TIME_NIGHT})},
                                 {EVO_LEVEL, 28, SPECIES_MAROWAK_ALOLA, CONDITIONS({IF_NOT_TIME, TIME_NIGHT})},
                                 {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_MAROWAK_ALOLA},
                                 {EVO_NONE, 0, SPECIES_MAROWAK_ALOLA_TOTEM}),
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> c3ee913250 (Kogane Changes Pt.1)
 >>>>>>> 4297b19265 (Kogane Changes Pt.1)
+=======
+>>>>>>> b277ea20ac (e)
     },
 
     [SPECIES_MAROWAK] =
@@ -14304,6 +14310,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sKoffingTeachableLearnset,
         .eggMoveLearnset = sKoffingEggMoveLearnset,
 <<<<<<< HEAD
+<<<<<<< HEAD
         .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_WEEZING},
                                 {EVO_ITEM, SPECIES_WEEZING_GALAR}),
 =======
@@ -14318,6 +14325,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_ITEM, SPECIES_WEEZING_GALAR}),
 >>>>>>> c3ee913250 (Kogane Changes Pt.1)
 >>>>>>> 4297b19265 (Kogane Changes Pt.1)
+=======
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_WEEZING},
+                                {EVO_ITEM, SPECIES_WEEZING_GALAR}),
+>>>>>>> b277ea20ac (e)
     },
 
     [SPECIES_WEEZING] =

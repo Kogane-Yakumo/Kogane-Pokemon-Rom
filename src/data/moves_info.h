@@ -18696,7 +18696,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_METEORBEAMCHARGING },
         .additionalEffects = ADDITIONAL_EFFECTS({
@@ -21110,8 +21109,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .sleepTalkBanned = TRUE,
-        .instructBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_ELECTROSHOTCHARGING, .weather = B_WEATHER_RAIN },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
@@ -21539,7 +21536,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .kickingMove = TRUE,
-        .battleAnimScript = gBattleAnimMove_Gust,
+        .battleAnimScript = gBattleAnimMove_WingAttack,
         )
     },
 
@@ -21582,7 +21579,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_PKMNTOOKSUNLIGHT, .weather = B_WEATHER_SANDSTORM }, //Update Later
-        .battleAnimScript = gBattleAnimMove_SolarBlade, //Update Later
+        .battleAnimScript = gBattleAnimMove_SandTomb,
     },
 
     [MOVE_SLIDE_KICK] = {
@@ -21599,12 +21596,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .kickingMove = TRUE,
-        .battleAnimScript = // TODO
+        .battleAnimScript = gBattleAnimMove_LowKick,
     },
 
     [MOVE_PSYCHIC_PALM] = {
         .name = COMPOUND_STRING("Psychic Palm"),
-        .description = COMPOUND_STRING(""),
+        .description = COMPOUND_STRING("TODO DESC Psychic Palm"),
         .effect = EFFECT_HIT,
         .power = 40,
         .type = TYPE_PSYCHIC,
@@ -21612,16 +21609,79 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
-        .battleAnimScript = // TODO
+        .battleAnimScript = gBattleAnimMove_DoubleSlap,
     },
 
     [MOVE_ZEN_FIST] = {
-        .name = COMPOUND_STRING("Psychic Palm"),
+        .name = COMPOUND_STRING("Zen Fist"),
+        .description = COMPOUND_STRING("TODO DESC Zen Fist"),
+        .effect = EFFECT_ZEN_FIST,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .punchingMove = TRUE,
+        .battleAnimeScript = gBattleAnimMove_MegaPunch,
     },
 
     [MOVE_RUINOUS_MIND] = {
         .name = COMPOUND_STRING("Psychic Palm"),
+        .description = COMPOUND_STRING("TODO DESC Psychic Palm"),
+        .effect = EFFECT_RECOIL,
+        .power = 120,
+        .type = TYPE_PSYCHIC
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument = { .recoilPercentage = 33 },
+        .battleAnimScript = gBattleAnimMove_Psychic,
     },
+
+    [MOVE_SAND_IMPACT] = {
+        .name = COMPOUND_STRING("Sand Impact"),
+        .description = .description = COMPOUND_STRING("TODO DESC Sand Impact"),
+        .effect = EFFECT_HIT,
+        .power = 110,
+        .type = TYPE_ROCK,
+        .accuracy = 70,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_PREVENT_ESCAPE,
+            .chance = 30,
+        }),
+        .battleAnimScript = gBattleAnimMove_ScorchingSands,
+    },
+
+    [MOVE_GEM_FLASH] = {
+        .name = COMPOUND_STRING("Gem Flash"),
+        .description = COMPOUND_STRING("TODO DESC Gem Flash"),
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_ROCK,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Flash,
+    },
+
+    [MOVE_SUBMURGE] = {
+        .name = COMPOUND_STRING("Submurge"),
+        .description = COMPOUND_STRING("TODO DESC Submerge"),
+        .effect = EFFECT_SUBMURGE, // TODO
+        .type = TYPE_WATER,
+        .pp = 10
+        .priority = 0,
+        .catergory = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Dive // TODO,
+    }
 
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =

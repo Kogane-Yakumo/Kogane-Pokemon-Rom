@@ -2237,6 +2237,21 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
+    [EFFECT_ZEN_FIST] = 
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 0, // TODO: Assign points
+    },
+
+    [EFFECT_SUBMURGE] = 
+    {
+        .battleScript = BattleScript_EffectProtect,
+        .battleTvScore = 2,
+        .semiInvulnerableEffect = TRUE,
+        .encourageEncore = TRUE,
+        .usesProtectCounter = TRUE,
+    }
+
     [EFFECT_SPECIES_POWER_OVERRIDE] =
     {
         .battleScript = BattleScript_EffectHit,

@@ -7208,7 +7208,7 @@ static inline u32 CalcDefenseStat(struct BattleContext *ctx)
     def = gBattleMons[battlerDef].defense;
     spDef = gBattleMons[battlerDef].spDefense;
 
-    if (moveEffect == EFFECT_PSYSHOCK || IsBattleMovePhysical(move)) // uses defense stat instead of sp.def
+    if (moveEffect == EFFECT_PSYSHOCK || IsBattleMovePhysical(move) && !(moveEffect == EFFECT_ZEN_FIST)) // uses defense stat instead of sp.def
     {
         if (ctx->fieldStatuses & STATUS_FIELD_WONDER_ROOM) // the defense stats are swapped
         {
