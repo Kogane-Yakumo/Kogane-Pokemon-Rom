@@ -7171,7 +7171,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "with intense fire."),
         .effect = EFFECT_NON_VOLATILE_STATUS,
         .power = 0,
-        .type = TYPE_FIRE,
+        .type = TYPE_GHOST,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_6 ? 85 : 75,
         .pp = 15,
         .target = TARGET_SELECTED,
@@ -19332,7 +19332,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_METEORBEAMCHARGING },
         .additionalEffects = ADDITIONAL_EFFECTS({
@@ -22115,6 +22114,290 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
     },
+
+    [MOVE_SKITTER] =
+    {
+        .name = COMPOUND_STRING("Skitter"),
+        .description = COMPOUND_STRING(
+            "The user attacks by moving\n"
+            "erratically then escapes."),
+        .effect = EFFECT_HIT_ESCAPE,
+        .power = 70,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_StruggleBug,
+    },
+
+    [MOVE_JET_STING] =
+    {
+        .name = COMPOUND_STRING("Jet Sting"),
+        .description = COMPOUND_STRING(
+            "Quickly drives a stinger\n"
+            "to usually strike first."),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_BUG,
+        .accuracy = 100,
+        .pp = 30,
+        .target = TARGET_SELECTED,
+        .priority = 1,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_QuickAttack,
+    },
+
+    [MOVE_ARC_BLAST] =
+    {
+        .name = COMPOUND_STRING("Arc Blast"),
+        .description = COMPOUND_STRING(
+            "A pressure wave created by\n"
+            "electricity. Hits all foes."),
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_ThunderWave,
+    },
+
+    [MOVE_SPARK_KICK] =
+    {
+        .name = COMPOUND_STRING("Spark Kick"),
+        .description = COMPOUND_STRING(
+            "A kick with a high critical-\n"
+            "hit ratio. May paralyze."),
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_FIRE,
+        .accuracy = 90,
+        .criticalHitStage = B_UPDATED_MOVE_DATA >= GEN_3 ? 1 : 2,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .kickingMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_PARALYSIS,
+            .chance = 10,
+        }),
+        .battleAnimScript = gBattleAnimMove_MegaKick,
+    },
+
+    [MOVE_FAE_TOUCH] =
+    {
+        .name = COMPOUND_STRING("Fae Touch"),
+        .description = COMPOUND_STRING(
+            "A mystical attack that may\n"
+            "physically weaken the target."),
+        .effect = EFFECT_HIT,
+        .power = 50,
+        .type = TYPE_FAIRY,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_ATK_MINUS_1,
+            .chance = 30,
+        }),
+        .battleAnimScript = gBattleAnimMove_DrainingKiss,
+    },
+
+    [MOVE_MYSTIC_FIST] =
+    {
+        .name = COMPOUND_STRING("Mystic Fist"),
+        .description = COMPOUND_STRING(
+            "Manifests the user's spirit\n"
+            "to punch the foe."),
+        .effect = EFFECT_PSYSHOCK,
+        .power = 80,
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .contestEffect = CONTEST_EFFECT_REPETITION_NOT_BORING,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_MegaPunch,
+    },
+
+    [MOVE_CYCLONE_KICK] =
+    {
+        .name = COMPOUND_STRING("Cyclone Kick"),
+        .description = COUMPOUND_STRING(
+            "Uses a whirlwind empowered\n"
+            "spinning kick to launch a foe."
+        .effect = EFFECT_HIT_SWITCH_TARGET,
+        .power = 60,
+        .type = TYPE_FLYING,
+        .accuracy = 90,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = -6,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .kickingMove = TRUE,
+        .battleAnimScript = gBattleAnimMove_WingAttack,
+        )
+    },
+
+    [MOVE_VINE_SNARE] = 
+    {
+        .name = COMPOUND_STRING("Vine Snare"),
+        .description = COMPOUND_STRING(
+            "Unground vines attack and\n"
+            "lowers the foe's Speed."),
+        .effect = EFFECT_HIT,
+        .power = 55,
+        .type = TYPE_GRASS,
+        .accuracy = 95,
+        .pp = 15,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .windMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SPD_MINUS_1,
+            .chance = 100,
+        }),
+        .battleAnimScript = gBattleAnimMove_VineWhip,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_DUSTSTORM] = {
+        .name = COMPOUND_STRING("Duststorm"),
+        .description = COMPOUND_STRING(
+            "Charges first turn, then\n"
+            "chops with a blade of light."),
+        .effect = EFFECT_TWO_TURNS_ATTACK,,
+        .power = 125,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+        .argument.twoTurnAttack = { .stringId = STRINGID_PKMNTOOKSUNLIGHT, .weather = B_WEATHER_SANDSTORM }, //Update Later
+        .battleAnimScript = gBattleAnimMove_SandTomb,
+    },
+
+    [MOVE_SLIDE_KICK] = {
+        .name = COMPOUND_STRING("Slide Kick"),
+        .description = COMPOUND_STRING(
+            "Freezes the ground for an\n"
+            "Icy sliding kick"),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_ICE,
+        .accuracy = 95,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .kickingMove = TRUE,
+        .battleAnimScript = gBattleAnimMove_LowKick,
+    },
+
+    [MOVE_PSYCHIC_PALM] = {
+        .name = COMPOUND_STRING("Psychic Palm"),
+        .description = COMPOUND_STRING("TODO DESC Psychic Palm"),
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_PSYCHIC,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .battleAnimScript = gBattleAnimMove_DoubleSlap,
+    },
+
+    [MOVE_ZEN_FIST] = {
+        .name = COMPOUND_STRING("Zen Fist"),
+        .description = COMPOUND_STRING("TODO DESC Zen Fist"),
+        .effect = EFFECT_ZEN_FIST,
+        .power = 80,
+        .type = TYPE_PSYCHIC,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .punchingMove = TRUE,
+        .battleAnimeScript = gBattleAnimMove_MegaPunch,
+    },
+
+    [MOVE_RUINOUS_MIND] = {
+        .name = COMPOUND_STRING("Psychic Palm"),
+        .description = COMPOUND_STRING("TODO DESC Psychic Palm"),
+        .effect = EFFECT_RECOIL,
+        .power = 120,
+        .type = TYPE_PSYCHIC
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .argument = { .recoilPercentage = 33 },
+        .battleAnimScript = gBattleAnimMove_Psychic,
+    },
+
+    [MOVE_SAND_IMPACT] = {
+        .name = COMPOUND_STRING("Sand Impact"),
+        .description = .description = COMPOUND_STRING("TODO DESC Sand Impact"),
+        .effect = EFFECT_HIT,
+        .power = 110,
+        .type = TYPE_ROCK,
+        .accuracy = 70,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_PREVENT_ESCAPE,
+            .chance = 30,
+        }),
+        .battleAnimScript = gBattleAnimMove_ScorchingSands,
+    },
+
+    [MOVE_GEM_FLASH] = {
+        .name = COMPOUND_STRING("Gem Flash"),
+        .description = COMPOUND_STRING("TODO DESC Gem Flash"),
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_ROCK,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Flash,
+    },
+
+    [MOVE_SUBMURGE] = {
+        .name = COMPOUND_STRING("Submurge"),
+        .description = COMPOUND_STRING("TODO DESC Submerge"),
+        .effect = EFFECT_SUBMURGE, // TODO
+        .type = TYPE_WATER,
+        .pp = 10
+        .priority = 0,
+        .catergory = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Dive // TODO,
+    }
 
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =

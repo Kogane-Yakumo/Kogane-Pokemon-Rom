@@ -331,6 +331,11 @@ const struct HoldEffectInfo gHoldEffectsInfo[HOLD_EFFECT_COUNT] =
         .leftovers = TRUE,
     },
 
+    [HOLD_EFFECT_HONEY] =
+    {
+        .leftovers = TRUE,
+    },
+
     [HOLD_EFFECT_DESTINY_KNOT] =
     {
     },

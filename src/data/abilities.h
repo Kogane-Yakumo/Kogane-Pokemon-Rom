@@ -2556,4 +2556,18 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Aura Guard"),
         .description = COMPOUND_STRING("Unimplemented."),
     },
+    // Kogane Custom Abilities
+    [ABILITY_STEEL_TOED] =
+    {
+        .name = _("Steel Toed"),
+        .description = COMPOUND_STRING("Improves kicking moves."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_AURORAL_SCALE] =
+    {
+        .name = _("Auroral Scale"),
+        .description = COMPOUND_STRING("Creates aurora veil."),
+        .aiRating = 7,
+    }
 };

@@ -3932,9 +3932,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
     #if P_UPDATED_ABILITIES >= GEN_6
-        .abilities = { ABILITY_POISON_POINT, ABILITY_SWARM, ABILITY_SPEED_BOOST },
+        .abilities = { ABILITY_POISON_POINT, ABILITY_INTIMIDATE, ABILITY_SPEED_BOOST },
     #else
-        .abilities = { ABILITY_POISON_POINT, ABILITY_SWARM, ABILITY_QUICK_FEET },
+        .abilities = { ABILITY_POISON_POINT, ABILITY_INTIMIDATE, ABILITY_QUICK_FEET },
     #endif
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Whirlipede"),
@@ -4014,9 +4014,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
     #if P_UPDATED_ABILITIES >= GEN_6
-        .abilities = { ABILITY_POISON_POINT, ABILITY_SWARM, ABILITY_SPEED_BOOST },
+        .abilities = { ABILITY_POISON_POINT, ABILITY_INTIMIDATE, ABILITY_SPEED_BOOST },
     #else
-        .abilities = { ABILITY_POISON_POINT, ABILITY_SWARM, ABILITY_QUICK_FEET },
+        .abilities = { ABILITY_POISON_POINT, ABILITY_INTIMIDATE, ABILITY_QUICK_FEET },
     #endif
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Scolipede"),
@@ -4280,9 +4280,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_PETILIL] =
     {
         .baseHP        = 45,
-        .baseAttack    = 35,
-        .baseDefense   = 50,
-        .baseSpeed     = 30,
+        .baseAttack    = 42,
+        .baseDefense   = 48,
+        .baseSpeed     = 25,
         .baseSpAttack  = 70,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_GRASS),
@@ -4347,11 +4347,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sPetililLevelUpLearnset,
         .teachableLearnset = sPetililTeachableLearnset,
         .eggMoveLearnset = sPetililEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SUN_STONE, SPECIES_LILLIGANT, CONDITIONS({IF_NOT_REGION, REGION_HISUI})}
-                            #if P_HISUIAN_FORMS
-                                ,{EVO_ITEM, ITEM_SUN_STONE, SPECIES_LILLIGANT_HISUI, CONDITIONS({IF_REGION, REGION_HISUI})}
-                            #endif
-                            ),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SUN_STONE, SPECIES_LILLIGANT, CONDITIONS({IF_ATK_LT_DEF})},
+                                {EVO_ITEM, ITEM_SUN_STONE, SPECIES_LILLIGANT_HISUI, CONDITIONS({IF_ATK_GT_DEF})}),
     },
 
     [SPECIES_LILLIGANT] =
@@ -4372,7 +4369,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_OWN_TEMPO, ABILITY_LEAF_GUARD },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_QUEENLY_MAJESTY, ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
         .speciesName = _("Lilligant"),
@@ -4444,7 +4441,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_HUSTLE, ABILITY_LEAF_GUARD },
+        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_STEEL_TOED, ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
         .speciesName = _("Lilligant"),
@@ -5871,11 +5868,11 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_SIGILYPH
     [SPECIES_SIGILYPH] =
     {
-        .baseHP        = 72,
+        .baseHP        = 78,
         .baseAttack    = 58,
         .baseDefense   = 80,
-        .baseSpeed     = 97,
-        .baseSpAttack  = 103,
+        .baseSpeed     = 103,
+        .baseSpAttack  = 116,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FLYING),
         .catchRate = 45,
@@ -11017,7 +11014,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_REGENERATOR, ABILITY_RECKLESS },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_REGENERATOR, ABILITY_STEEL_TOED },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Mienfoo"),
         .cryId = CRY_MIENFOO,
@@ -11085,7 +11082,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_REGENERATOR, ABILITY_RECKLESS },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_REGENERATOR, ABILITY_STEEL_TOED },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Mienshao"),
         .cryId = CRY_MIENSHAO,

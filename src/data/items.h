@@ -2982,6 +2982,7 @@ const struct ItemInfo gItemsInfo[] =
     #else
         .price = 100,
     #endif
+        .holdEffect = HOLD_EFFECT_HONEY,
         .description = COMPOUND_STRING(
             "A sweet honey that\n"
             "attracts wild\n"
